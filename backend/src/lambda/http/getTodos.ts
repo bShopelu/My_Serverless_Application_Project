@@ -1,5 +1,4 @@
 import 'source-map-support/register'
-
 import {APIGatewayProxyEvent, APIGatewayProxyResult, APIGatewayProxyHandler} from 'aws-lambda';
 import {getAllToDo} from "../../businessLogic/ToDo";
 
@@ -12,8 +11,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
 
     const toDos = await getAllToDo(jwtToken);
 
-    return {
-        statusCode: 200,
+    return { statusCode: 202,
         headers: {
             "Access-Control-Allow-Origin": "*",
         },
